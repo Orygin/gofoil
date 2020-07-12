@@ -27,11 +27,8 @@ var hostPort = flag.String("port", "8000", "Host Port to display to switch")
 const htmlpage =`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Select switch IP to connect to</title><style>p, #switch {font-size: 8vw;}button{width:100%;height: 80px;background-color: #EFA6A2;font-size: 3vw;}</style></head>
 <body><p>select switch IP to connect to</p><form action="#" method="post"><input type="text" id="switch" name="switch" value="192.168.1.17"><button type="submit">go</button></form></body></html>`
 
-var filesMap map[string]string
-
 func main(){
 	initFlags()
-	filesMap = make(map[string]string)
     r := mux.NewRouter()
 	r.HandleFunc("/", HomeHandler)
 
@@ -92,13 +89,11 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 			case ".nsz":
 				fallthrough
 			case ".xci":
-				//relPath := filepath.Base(path)
 				relPath := strings.TrimPrefix(path, *rootPath)
 				relPath = strings.Replace(relPath, "\\", "/", -1) // Remove ugly windows \ seperator
 				finalPath := fmt.Sprintf("%s:%s/files/%s\n", *hostIP, *hostPort, url.PathEscape(relPath))
 				files = append(files, finalPath)
 				length += len(finalPath)
-				filesMap[relPath] = path
 			}
 			return nil
 		})

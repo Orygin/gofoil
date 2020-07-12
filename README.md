@@ -1,5 +1,5 @@
 # Gofoil
-Gofoil is a little tool inspired by tinfoil's python [remote_install_pc](https://github.com/Adubbz/Tinfoil/blob/master/tools/remote_install_pc.py), written in go. Using a little bit of [bycEEE/tinfoilusbgo](github.com/bycEEE/tinfoilusbgo).  
+Gofoil is a little tool inspired by tinfoil's python [remote_install_pc.py](https://github.com/Adubbz/Tinfoil/blob/master/tools/remote_install_pc.py), written in go. Using a little bit of [bycEEE/tinfoilusbgo](github.com/bycEEE/tinfoilusbgo).  
 
 ## Why
 I wanted to load switch saves from my NAS onto my switch without powering up my computer.
@@ -20,7 +20,7 @@ With Awoo or Tinfoil opened on your switch, and the network install selected, yo
 ## Building
 Use the regular go command to get the project:
 ```shell script
-go get -u gofoil
+go get -u github.com/Orygin/gofoil
 ```
 You can build for another OS/Arch target using the env vars `GOOS` and `GOARCH`  
 For example for my NAS I had to build for linux/armv5:
