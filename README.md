@@ -12,7 +12,11 @@ This was tested only with Awoo Installer on Atmosphere. May also work on tinfoil
 To run gofoil, you need to provide it a few arguments, like the host IP, port, and folder to scan for switch files.  
 Example, on a windows machine (and shared network):   
 ```shell script
-gofoil.exe -root Z:\\ -folders Downloads,Games/switch -ip 192.168.1.95 -port 8000
+gofoil.exe -root Z:\ -folders Downloads,Games/switch -ip 192.168.1.95 -port 8000
+```
+On linux:
+```shell script
+./gofoil -root /volume1/ -folders Games -ip 192.168.1.2 -port 8000
 ```
 It will start a server at the ip:port indicated. You can open this page (on your phone for example) to show a page where you can input your switch's IP.  
 With Awoo or Tinfoil opened on your switch, and the network install selected, you should now see a list of files from the directory, available to install.
